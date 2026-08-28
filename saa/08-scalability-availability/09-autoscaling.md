@@ -1,35 +1,47 @@
-# Auto Scaling Groups 
+# EC2 Auto Scaling Groups
 
-Scale in / out to match an increasing or decreasing load 
-- Auto registers to load balancer which can check health and de-register 
-- Free! 
-- Min / Max capacity 
-- Can scale off of CloudWatch alarms 
+An Auto Scaling group (ASG) maintains and adjusts a fleet of EC2 instances.
 
-Use Launch template 
-* AMI / Instance Type / SSH / SGs / IAM roles / Network + Subnets / Scaling policies 
+- Minimum, desired, and maximum capacity
+- Spans subnets in multiple Availability Zones
+- Replaces unhealthy or terminated instances to maintain desired capacity
+- Automatically registers and deregisters instances with an attached target group
+- No additional ASG charge; pay for the resources it launches
+- EC2 health checks are enabled by default
+- Enable ELB health checks for the ASG to replace load-balancer-unhealthy instances
 
-Scaling polices: 
+## Launch Template
 
-### Dynamic Scaling 
-1. Target tracking scaling: Define target value (Ex CPU @ 40%)
-2. Simple / step scaling: Define CloudWatch alarms 
+Defines how new instances launch:
 
-### Scheduled Scaling 
-Anticipate scaling based on known usage patterns 
+- AMI and instance type
+- Key pair, security groups, and IAM instance profile
+- User data and EBS volumes
+- Metadata and monitoring options
 
-### Predictive Scaling 
-Continuously forecast load and schedule scaling ahead of time 
+Subnets, desired capacity, and scaling policies belong to the ASG, not the launch template.
 
-Good metrics to scale on:
-- CPU utilization 
-- Request count per target 
-- Average network in / out 
-- Any custom metric 
+## Scaling Methods
 
-Cooldown period allows for metrics to stabilize 
+### Dynamic Scaling
 
+- Target tracking: Keeps a metric near a target, such as average CPU at 40%
+- Step scaling: Changes capacity based on the size of an alarm breach
+- Simple scaling: One adjustment followed by a cooldown period
 
+### Scheduled Scaling
 
+Changes capacity at known times, such as a weekday traffic peak.
 
+### Predictive Scaling
 
+Forecasts recurring load and schedules capacity ahead of demand. Often combined with dynamic scaling.
+
+## Useful Metrics
+
+- Average CPU utilization
+- ALB request count per target
+- Average network in or out
+- Custom CloudWatch metrics
+
+Instance warmup prevents new instances from distorting scaling metrics. Cooldown mainly applies to simple scaling.

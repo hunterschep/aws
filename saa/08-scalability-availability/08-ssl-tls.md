@@ -1,59 +1,26 @@
-# SSL/TLS 
+# SSL and TLS
 
-SSL/TLS certificate allows traffic between clients and load balancer to be encrypted in transit 
-SSL = secure lockets layer 
-TLS = transport security layer (Newer than SSL)
+- SSL: Secure Sockets Layer; legacy protocol
+- TLS: Transport Layer Security; modern replacement for SSL
+- An X.509 server certificate proves the server identity and enables encryption in transit
+- Public certificates are signed by a certificate authority and expire
 
-Public SSL certificates are issued by certificate authorities. Have an expiry date 
+## Load Balancer Certificates
 
-Users <-->  Load Balancer <--> EC2 instance 
-     via HTTPS             HTTP 
+- Manage certificates with AWS Certificate Manager (ACM) or import them
+- ACM-issued public certificates can renew automatically when eligibility requirements remain met
+- Imported certificates must be renewed and reimported manually
+- HTTPS or TLS listener requires a default certificate
+- Add a certificate list to serve multiple domains
+- Security policy selects supported TLS versions and cipher suites
 
-- Load balancer uses X.509 certificate (SSL/TLS server certificate)
-- You can manage certificates using ACM (AWS Certificate Manager)
-- You can create/upload your own certificates alternatively 
-- HTTPS listener: 
-* Must specify a default certificate 
-* Can add optional list of certs to support multiple domains 
-* Clients can use SNI (Server Name Indication) to specify the hostname they reach 
+## Server Name Indication
 
-Browser: "I want HTTPS for example.com"
+SNI sends the requested hostname during the TLS handshake.
 
-       TLS handshake
-            ↓
+1. Client sends a TLS `ClientHello` with the hostname
+2. ALB or NLB selects the matching certificate
+3. TLS handshake establishes encrypted traffic
+4. Listener rules route the request
 
-ALB: "Here's my certificate proving I'm example.com"
-
-Browser:
-- verifies certificate
-- establishes encryption keys
-
-       encrypted HTTPS
-Browser <==============> ALB
-
-                         ALB decrypts request
-
-                         GET /products
-                              |
-                              | plain HTTP
-                              v
-                             EC2
-
-### SNI 
-
-1. Browser connects to ALB :443
-
-2. Browser sends TLS ClientHello
-   SNI = shop.example.com
-
-3. ALB sees SNI
-   chooses shop.example.com certificate
-
-4. TLS handshake completes
-
-5. Browser sends encrypted HTTP request
-   Host: shop.example.com
-
-6. ALB uses listener rules to route the request
-   to the appropriate target group
-
+SNI allows multiple certificates on one listener. The load balancer can terminate TLS and send HTTP to targets, or use HTTPS again for end-to-end encryption.

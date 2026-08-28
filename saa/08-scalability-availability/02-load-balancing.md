@@ -1,26 +1,28 @@
-# Load Balancing 
+# Elastic Load Balancing
 
-Servers that forward traffic to multiple possible downstream healthy backends. Spreads load through single point of access. 
+Elastic Load Balancing (ELB) distributes incoming traffic across healthy targets.
 
-Elastic Load Balancer = AWS Managed load balancer 
+- Managed by AWS and scales automatically
+- Supports targets in multiple Availability Zones
+- Performs health checks and stops routing to unhealthy targets
+- Provides one DNS endpoint
+- Can be internet-facing or internal
 
+## Load Balancer Types
 
-1. Classic Load Balancer (CLB): v1 old generation, HTTP HTTPS TCP SSL (DEPRECATED)
+| Type | Layer | Traffic and Use |
+| --- | --- | --- |
+| Application Load Balancer (ALB) | 7 | HTTP, HTTPS, WebSockets, and gRPC |
+| Network Load Balancer (NLB) | 4 | TCP, TLS, and UDP; very high performance |
+| Gateway Load Balancer (GWLB) | 3 | IP traffic through virtual network appliances |
+| Classic Load Balancer (CLB) | 4 and 7 | Previous generation; migrate to a current type |
 
-2. Application Load Balancer (ALB): NEW, 
-HTTP, HTTPS, WebSockets - Layer 7 
+## Security
 
-3. Network Load Balancer (NLB): TCP, TLS, UDP - Layer 4 
+- For an ALB, allow client traffic to the load balancer security group
+- Target security groups should allow traffic only from the ALB security group
+- Targets do not need public IP addresses
 
-4. Gateway Load Balancer (GWLB): IP Protocol - Layer 3 
+## Deregistration Delay
 
-
-## Security 
-
-- Users can access from anywhere via HTTP or HTTPS 
-- EC2 instances then only allow instances from load balancer 
-
-
-## Connection draining / de-registration delay 
-Time to complete in flight requests while instance is de-registering / unhealthy 
-
+Allows in-flight requests to finish before a target is removed. Also called connection draining.
