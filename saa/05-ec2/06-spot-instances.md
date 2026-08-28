@@ -1,15 +1,24 @@
-# Spot instances 
+# Spot Instances
 
-1. Persistent request 
-2. One time request 
+- Use spare EC2 capacity for interruptible workloads
+- Interruption behavior: Stop, hibernate, or terminate
+- Usually provides a two-minute interruption warning; hibernation begins immediately
+- Design workloads to be stateless, fault-tolerant, and able to resume
 
-## Spot fleet 
+## Spot Requests
 
-- Define launch pools, instance type, OS, AZs 
-- Have AWS assemble the cheapest / most available mix of instances 
+- One-time request: Closes after capacity is fulfilled
+- Persistent request: Remains active until canceled and can request replacement capacity
 
-* lowestPrice 
-* diversified 
-* capacityOptimized 
-* priceCapacityOptimized 
+## Spot Fleet
 
+- Defines target capacity and multiple launch pools
+- Pools vary by instance type, Availability Zone, operating system, and tenancy
+- Can maintain a mix of Spot and On-Demand Instances
+
+### Allocation Strategies
+
+- `lowestPrice`: Uses the cheapest pools; greater interruption risk
+- `diversified`: Spreads capacity across pools
+- `capacityOptimized`: Uses pools with the most available capacity
+- `priceCapacityOptimized`: Balances price and capacity; preferred for most workloads

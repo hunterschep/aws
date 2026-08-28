@@ -1,82 +1,61 @@
-# EC2 Purchasing Options 
+# EC2 Purchasing Options
 
-1. On-demand: short workload, predictable pricing, pay by second 
+| Option | Best Fit |
+| --- | --- |
+| On-Demand | Short, unpredictable workloads |
+| Reserved Instances | Steady usage with a known configuration |
+| Savings Plans | Steady compute spend with more flexibility |
+| Spot Instances | Fault-tolerant, interruptible workloads |
+| Dedicated Hosts | Server-bound licenses or strict compliance |
+| Dedicated Instances | Single-tenant hardware |
+| Capacity Reservations | Guaranteed capacity in one AZ |
 
-2. Reserved instances: For long workloads 
-- Convertible reserved instances: Flexible to be upgraded / downgraded
+## 1. On-Demand Instances
 
-3. Savings plans: Commmitment to an amount of usage 
+- No upfront payment or long-term commitment
+- Pay by the second for running instances
+- Highest price, but maximum flexibility
 
-4. Spot instances: Short workloads, cheap, an lose at any time 
+## 2. Reserved Instances
 
-5. Dedicated hosts: Book an ENTIRE physical server, control instance placement 
+- Billing discount for a 1- or 3-year term; not a separate instance type
+- Best for steady-state workloads
+- Payment options: All Upfront, Partial Upfront, or No Upfront
+- Standard RI: Largest discount, less flexible
+- Convertible RI: Can exchange for different instance attributes
+- Regional RI: Discount flexibility, but no capacity reservation
+- Zonal RI: Discount plus capacity reservation in one AZ
 
-6. Dedicated instances: No other customers will share hardware 
+## 3. Savings Plans
 
-7. Capacity reservations: Reserve capacity in specific AZ for any duration 
+- Commit to a consistent USD-per-hour spend for 1 or 3 years
+- Compute Savings Plans: Flexible across instance family, Region, OS, tenancy, Fargate, and Lambda
+- EC2 Instance Savings Plans: Tied to an instance family and Region; larger discount
+- Do not reserve capacity
 
---- 
+## 4. Spot Instances
 
-## 1. On Demand 
+- Use spare EC2 capacity at a large discount
+- AWS can interrupt the instance when it needs the capacity
+- Best for stateless, flexible, and fault-tolerant workloads
+- Examples: Batch jobs, data analysis, image processing, and distributed ML training
 
-* Pay for what OS you use 
-* Highest cost, no upfront payment 
-* No commitment 
+## 5. Dedicated Hosts
 
-## 2. Reserved Instances 
+- Entire physical server dedicated to one account
+- Visibility and control over sockets, cores, and instance placement
+- Supports some server-bound bring-your-own-license models
+- Useful for compliance; available On-Demand or with a Host Reservation
 
-* Large discount vs. on demand 
-* Reserve specific attributes 
-* 1 or 3 year period 
-* Good for steady state usage applications 
-* Can buy or sell in marketplace 
+## 6. Dedicated Instances
 
-##### 2a. Convertible 
-* Can change the instance type, family, OS, scope, and tenancy 
+- Instances run on single-tenant hardware
+- No host-level socket, core, or placement visibility
+- Simpler than Dedicated Hosts, but less control
 
-## 3. Savings Plans 
+## 7. On-Demand Capacity Reservations
 
-* Discount on long-term usage 
-* Commit to a certain type of usage. Ex: $10/hr for 1 or 3 years 
-* Locked into a specific instance family & AWS region. Ex: t3 in us-west-2 
-* Flexible across instance size and OS 
-
-## 4. Spot Instances 
-* Can get a discount of up to 90% vs. On-demand 
-* You can lose the instance at any point 
-* Great for loosely coupled workloads: 
-- batch processing 
-- ML training 
-
-## 5. Dedicated Hosts 
-* Physical server with EC2 instance capacity fully dedicated to your use 
-* Good for compliance requirements 
-* On demand or reserved 
-* Most expensive 
-
-Dedicated physical host
-┌────────────────────────────┐
-│                            │
-│   Your EC2 #1              │
-│   Your EC2 #2              │
-│   Your EC2 #3              │
-│                            │
-│   Physical sockets/cores   │
-│   belong to your host      │
-│                            │
-└────────────────────────────┘
-
-
-# 6. Dedicated instances 
-* Instances run on hardware dedicated to you 
-
-Physical AWS server
-├── Your EC2 VM
-├── Your EC2 VM
-└── Your EC2 VM
-
-# 7. Capacity reservations 
-* Reserve on demand instances in an AZ for any duration 
-
----
-
+- Reserve capacity for a specific instance configuration in one AZ
+- No term commitment and no billing discount
+- Charged at the On-Demand rate whether the capacity is used or not
+- Combine with an applicable RI or Savings Plan for a billing discount

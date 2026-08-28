@@ -1,9 +1,7 @@
-# Instance roles 
+# EC2 Instance Roles
 
-BAD: Never add secret keys to an EC2 instance using something like `aws configure` 
-
-DO: Use **IAM roles** 
-
-GOOD: Attaching an IAM role to an EC2 instance 
-
-
+- Never run `aws configure` with long-lived access keys on an EC2 instance
+- Attach an IAM role to the instance through an instance profile
+- Applications retrieve temporary, automatically rotated credentials from instance metadata
+- Scope the role to the permissions the workload needs
+- Enforce IMDSv2 to protect instance metadata credentials

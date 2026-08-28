@@ -1,16 +1,19 @@
-# Elastic Network Resources (ENI)
+# Elastic Network Interfaces
 
-* Logical component in VPC representing a virtual network card that you plug into an EC2 instance 
+An elastic network interface (ENI) is a virtual network card in a VPC.
 
+## Attributes
 
+- Primary private IPv4 and optional secondary private IPv4 addresses
+- Optional public IPv4 or Elastic IP mappings
+- One or more IPv6 addresses
+- One or more security groups
+- MAC address
+- Source/destination check setting
 
-* ENI can have following attributes. 
-- Primary IPv4, one or more secondary IPv4
-- One elastic IPv4 per private IPv4 
-- One Public IPv4 
-- One or more security groups 
-- MAC address 
+## Behavior
 
-* You can create ENI independently and attach them on the fly 
-
-* Bound to a specific AZ 
+- Bound to one Availability Zone
+- Primary ENI cannot be detached from its instance
+- Secondary ENIs can be attached, detached, and moved between instances in the same AZ
+- Moving a secondary ENI can provide low-cost network failover
