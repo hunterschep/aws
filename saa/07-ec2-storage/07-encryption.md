@@ -1,14 +1,19 @@
-# EBS Encryption 
+# EBS Encryption
 
-When you create an encrypted EBS volume: 
-- Data at rest is encrypted 
-- All the data in flight is encrypted 
-- All snapshots are encrypted 
+EBS encryption uses AES-256 data encryption and AWS KMS keys.
 
-EBS encryption leverages AES-256 
+An encrypted EBS volume encrypts:
 
-How to encrypt: 
-1. Create snapshot 
-2. Encrypt snapshot 
-3. Create new EBS volume from snapshot 
-4. Attach encrypted volume to original instance 
+- Data at rest
+- Data between the volume and EC2 instance
+- Snapshots created from the volume
+- Volumes created from those snapshots
+
+## Encrypt an Existing Unencrypted Volume
+
+1. Create a snapshot of the volume
+2. Copy the snapshot with encryption enabled
+3. Create a new volume from the encrypted snapshot
+4. Replace the original volume
+
+Encryption is not added to an existing volume in place. Use a customer managed KMS key when encrypted snapshots or AMIs must be shared across accounts.

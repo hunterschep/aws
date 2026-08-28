@@ -1,29 +1,35 @@
-# Elastic File System 
+# Amazon Elastic File System
 
-- Managed NFS (Network file system) that can be mounted on EC2 instances 
-- Multi AZ 
-- Highly available, scalab,e and expensive 
-- Uses NFSv4.1 protocol 
-- Uses security to group to control access to EFS 
-- Only compatible with Linux based AMI 
-- POSIX file system 
-- Scales automatically 
+Amazon EFS is serverless, elastic, shared file storage for Linux workloads.
 
-Use cases: Content management, web serving, data sharing, Wordpress 
+- Managed NFS file system using NFSv4
+- POSIX-compatible and mounted by many clients at once
+- Works with EC2, ECS, EKS, Fargate, and Lambda
+- Capacity grows and shrinks automatically
+- Pay for storage used; IA and Archive also have access charges
+- Use cases: Content management, web serving, shared data, and home directories
 
-### Performance and Storage Classes 
-* 1000s of concurrent NFS clients, 10 GB+/s of throughput 
-* Grow to petabyte scale system 
+## Availability and Networking
 
-#### Performance 
-1. General purpose: Default latency sensitive 
-2. Max I/O: Higher latency, throughput, highly parallel 
-3. Throughput Mode: 
-- Bursting: Bursty throughput 
-- Provisioned: Set your throughput 
-- Elastic: Automatically scale throughput 
+- Regional file system: Stores data across multiple AZs; default and most resilient
+- One Zone file system: Lower cost, but not resilient to AZ loss
+- Create mount targets in the client AZs
+- Security group must allow NFS on TCP port `2049`
 
-#### Storage Classes 
-1. Storage Tiers: Move file after N days 
-i. Standard tier: Frequent access 
-ii. Infrequent access: lower storage cost, higher retrieval time 
+## Performance
+
+- General Purpose: Default and lowest per-operation latency
+- Max I/O: Higher aggregate throughput and latency for highly parallel workloads
+- Throughput modes:
+  - Elastic: Automatically scales throughput
+  - Provisioned: Set throughput independently of storage
+  - Bursting: Throughput scales with stored data and burst credits
+
+## Storage Classes
+
+- Standard: Frequently accessed files
+- Infrequent Access (IA): Lower storage cost plus access charges
+- Archive: Lowest-cost tier for rarely accessed files
+- Lifecycle Management moves files between classes automatically
+
+Enable encryption at rest and use TLS for encryption in transit.

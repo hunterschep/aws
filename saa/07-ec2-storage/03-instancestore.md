@@ -1,12 +1,12 @@
-# EC2 Instance Store 
+# EC2 Instance Store
 
-Hardware disk attached onto an EC2 instance. High performance 
+High-performance block storage physically attached to the EC2 host.
 
-- Better I/O // Throughput 
-- LOST if EC2 is stopped (Ephemeral)
-- NOT durable or long term 
+- Very low latency and high IOPS or throughput
+- Available only on supported instance types
+- Cannot be attached after launch
+- Data survives a reboot
+- Data is lost on stop, hibernate, terminate, instance-type change, or host failure
+- No independent snapshot feature
 
-Good for: Buffer / cache / scratch data 
-
-EBS for long term storage 
-
+Use for buffers, caches, scratch data, and replicated temporary data. Use EBS, EFS, or S3 for durable data.
