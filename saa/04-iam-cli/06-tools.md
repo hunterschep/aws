@@ -1,15 +1,16 @@
-# Security Tools 
+# IAM Security Tools
 
-1. Credentials report: List all account users and credential status 
+- Credential report: Account-wide list of IAM users and credential status
+- Access Advisor: Services an identity can access and when they were last used
+- IAM Access Analyzer: Finds external access, validates policies, and helps generate policies
 
-2. Access advisor: What permissions users have and when they were used (least privilege) 
+## Best Practices
 
-
-## Best practices 
-
-1. Don't use root account except for AWS setup 
-2. One physical user = one AWS user 
-3. Strong password policy 
-4. Enforce MFA 
-5. Access keys for programmatic access 
-6. Audit permissions 
+- Use the root user only for tasks that require it
+- Enable MFA for human identities
+- Prefer federation, IAM Identity Center, and temporary credentials
+- Use groups to assign permissions to IAM users
+- Grant least privilege and review permissions regularly
+- Use roles for workloads and AWS services
+- Remove unused passwords and access keys
+- Never share users or credentials

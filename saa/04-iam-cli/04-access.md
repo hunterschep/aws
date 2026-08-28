@@ -1,16 +1,19 @@
-# Access 
+# Accessing AWS
 
-1. Management console: Username and password
-2. CLI: Access keys
-3. SDK: Access keys 
+1. Management Console: Password and MFA
+2. AWS CLI: Access keys or temporary credentials
+3. AWS SDKs: Access keys or temporary credentials
 
+## Access Keys
 
-- Access Keys are generated through the AWS console 
-- Users manage their own access keys 
+- Access key ID + secret access key
+- Secret access key is shown only when created
+- Never share access keys or commit them to source control
+- Prefer temporary role credentials over long-lived access keys
 
-Access Key ID = Username 
-Secret Access Key = Password 
+## AWS CloudShell
 
-## Cloudshell 
-
-Web access using secret keys via the AWS console on an Amazon Linux instance 
+- Browser-based shell authenticated by the current console session
+- AWS CLI and common tools are preinstalled
+- No need to configure personal access keys in the shell
+- Home-directory storage is persistent within each supported Region

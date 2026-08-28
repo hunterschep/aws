@@ -1,12 +1,15 @@
-# Roles 
+# IAM Roles
 
-* IAM role: Like a user, but used by AWS services 
-- EC2 instance holds IAM role which allows it to access instance 
-- Lambda function roles 
-- Cloudformation 
+- IAM identity with permission policies and no long-term credentials
+- Assumed by users, AWS services, applications, or other accounts
+- Trust policy controls who can assume the role
+- AWS STS provides temporary credentials for the role session
 
-## Example 
+## Common Examples
 
-1. Choose service (EC2)
-2. Add permission (View IAM users)
-3. Verify 
+- EC2 instance role, delivered through an instance profile
+- Lambda execution role
+- CloudFormation service role
+- Cross-account access role
+
+Use roles instead of storing access keys on AWS resources.

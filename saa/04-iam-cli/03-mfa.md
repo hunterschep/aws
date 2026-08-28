@@ -1,8 +1,10 @@
 # MFA Devices
 
-Password + security device 
+MFA = password plus another authentication factor.
 
-1. Virtual MFA device (Google auth, Authy, Duo)
-2. Universal 2nd factor - Physical security key (YubiKey)
-3. Hardware key fob MFA 
-4. Hardware key fob MFA for GovCloud 
+- Passkeys or FIDO security keys, such as YubiKey
+- Virtual authenticator apps using TOTP
+- Hardware TOTP tokens
+- Hardware MFA devices supported for AWS GovCloud (US)
+
+Enable MFA for the root user and all human identities. Prefer phishing-resistant MFA when possible.

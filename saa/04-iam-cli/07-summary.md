@@ -1,26 +1,17 @@
-# Summary 
+# IAM Summary
 
-1. Users: Individual human identities
+- Users: Long-lived identities in one AWS account
+- Groups: Collections of IAM users; used to assign shared permissions
+- Roles: Assumable identities that provide temporary credentials
+- Policies: JSON documents that define permissions
+- Identity-based policy: Attached to a user, group, or role
+- Resource-based policy: Attached to a resource and names a principal
+- Least privilege: Grant only the access required
+- MFA: Adds another authentication factor
+- CLI and SDK: Programmatic access to AWS APIs
+- CloudShell: Browser shell that uses the console session
+- Credential report: Account-wide credential audit
+- Access Advisor: Last-accessed service information
+- IAM Access Analyzer: External-access and policy analysis
 
-2. Groups: Hold users
-
-3. Policies: Can be tied to users or groups, provision access to aws apis / permissions 
-
-3a. Statements: 
-- ID
-- Effect
-- Principal
-- Action 
-- Resource 
-
-4. Roles: Temporary credentials for AWS services
-
-5. Security
-
-6. CLI
-
-7. Keys
-
-8. SDK
-
-9. Audit
+Authentication proves identity; authorization determines permitted actions.

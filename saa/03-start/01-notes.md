@@ -1,35 +1,41 @@
-# History 
-* Launched in 2002 recognizing infastructure as core strength 
-* 2004: SQS
-* 2006: SQS, S3, & EC2
-* 2007: Europe 
+# AWS Overview
 
-# Today 
-* Market leader in cloud infastructure services 
-* ~35% market share 
-* Over 1M+ active users 
+## History
 
-# Use cases 
-* Sophisticated, scalable applications 
-* Enterprise IT, Backup, Big Data
-* Website, Mobile, and Social Apps 
-* Gaming... and much more 
+- 2002: Early AWS services launched
+- 2004: Amazon SQS launched
+- 2006: Amazon S3 and Amazon EC2 launched
+- 2007: AWS expanded to Europe
 
-# Infastructure 
+## Common Use Cases
+
+- Enterprise IT, backup, and disaster recovery
+- Websites, mobile applications, and social applications
+- Big data, machine learning, and gaming
+- Scalable, highly available applications
+
+## Global Infrastructure
 
 ### Regions
-- Geographic Regions of AWS 
-- Example: us-east-1 
-- Connected via AWS networks 
-- How to choose?: 
-* Compliance w/ data governance and legal requirements 
-* Proximity to customers (latency)
-* Pricing variance per region
 
-### Availability Zones 
-- Each region has many availability zones 
-- Each AZ is one or more discrete data centers with redundant power, networking, and connectivity 
-- Connected via high bandwidth low latency networking to form *Regions*
+- Separate geographic areas, such as `us-east-1`
+- Isolated from other Regions; resources are not replicated automatically
+- Most AWS services and resources are Region-scoped
+- Choose a Region based on:
+  - Compliance and data residency
+  - Proximity to users and latency
+  - Available services and features
+  - Pricing
 
-### Edge Locations / Points of Presence 
-- 400+ locations where AWS can deliver content to end users with low latency 
+### Availability Zones
+
+- Each Region has at least three isolated Availability Zones (AZs)
+- Each AZ contains one or more discrete data centers
+- Separate power, networking, and connectivity
+- Connected within a Region by high-bandwidth, low-latency networking
+- Deploy across multiple AZs for high availability
+
+### Edge Locations and Points of Presence
+
+- Sites close to users for low-latency content delivery and DNS responses
+- Used by services such as Amazon CloudFront and Amazon Route 53
