@@ -3,7 +3,7 @@
 An Auto Scaling group (ASG) maintains and adjusts a fleet of EC2 instances.
 
 - Minimum, desired, and maximum capacity
-- Spans subnets in multiple Availability Zones
+- Can span subnets in multiple Availability Zones for high availability
 - Replaces unhealthy or terminated instances to maintain desired capacity
 - Automatically registers and deregisters instances with an attached target group
 - No additional ASG charge; pay for the resources it launches

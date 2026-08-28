@@ -21,4 +21,7 @@ By default, a new security group denies all inbound traffic and allows all outbo
 - `443`: HTTPS
 - `3389`: RDP
 
-Restrict SSH and RDP to trusted IP ranges. A connection timeout usually indicates a security group or network-path issue; connection refused usually indicates an application issue.
+Restrict SSH and RDP to trusted IP ranges.
+
+- Connection timeout: Usually a security group or network-path issue
+- Connection refused: Usually an application or host issue

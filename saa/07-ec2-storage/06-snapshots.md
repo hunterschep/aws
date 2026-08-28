@@ -12,4 +12,5 @@
 
 - Archive tier: Lower cost for rarely accessed, long-term snapshots; restore before use
 - Recycle Bin: Retains deleted snapshots that match a retention rule
-- Fast Snapshot Restore: Fully initializes new volumes and removes first-read latency; enabled per snapshot and AZ at extra cost
+- Fast Snapshot Restore: Fully initializes volumes and removes first-read latency
+  - Enabled per snapshot and AZ at extra cost

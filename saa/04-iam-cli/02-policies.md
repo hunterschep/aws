@@ -23,4 +23,4 @@
 - Requests are implicitly denied by default
 - An applicable `Allow` grants access
 - An explicit `Deny` overrides an `Allow`
-- Both the action and resource must be allowed
+- An `Allow` must cover the action and resource, with any conditions satisfied

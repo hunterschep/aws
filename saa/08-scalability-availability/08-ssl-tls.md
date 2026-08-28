@@ -23,4 +23,5 @@ SNI sends the requested hostname during the TLS handshake.
 3. TLS handshake establishes encrypted traffic
 4. Listener rules route the request
 
-SNI allows multiple certificates on one listener. The load balancer can terminate TLS and send HTTP to targets, or use HTTPS again for end-to-end encryption.
+SNI allows multiple certificates on one listener.
+The load balancer can terminate TLS and send HTTP to targets, or use HTTPS again for end-to-end encryption.

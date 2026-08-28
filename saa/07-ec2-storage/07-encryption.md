@@ -16,4 +16,5 @@ An encrypted EBS volume encrypts:
 3. Create a new volume from the encrypted snapshot
 4. Replace the original volume
 
-Encryption is not added to an existing volume in place. Use a customer managed KMS key when encrypted snapshots or AMIs must be shared across accounts.
+Encryption is not added to an existing volume in place.
+Use a customer managed KMS key to share encrypted snapshots or AMIs across accounts.
