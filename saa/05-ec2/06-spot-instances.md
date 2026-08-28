@@ -7,14 +7,15 @@
 
 ## Spot Requests
 
-- One-time request: Closes after capacity is fulfilled
-- Persistent request: Remains active until canceled and can request replacement capacity
+- One-time request: Is not resubmitted after the instance is interrupted
+- Persistent request: Is resubmitted after interruption until it expires or is canceled
 
 ## Spot Fleet
 
 - Defines target capacity and multiple launch pools
 - Pools vary by instance type, Availability Zone, operating system, and tenancy
 - Can maintain a mix of Spot and On-Demand Instances
+- Legacy API; prefer EC2 Fleet or an Auto Scaling group for new designs
 
 ### Allocation Strategies
 
