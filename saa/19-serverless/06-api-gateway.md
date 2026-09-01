@@ -22,7 +22,7 @@ HTTP and WebSocket APIs use Regional endpoints
 - Throttling and quotas protect backends
 - REST API caching reduces backend calls; caching is not available for HTTP APIs
 - Request/response transformations and CORS support
-- Custom domains, TLS certificates, CloudWatch logs/metrics, and X-Ray tracing
+- Custom domains, TLS certificates, and CloudWatch logs/metrics; X-Ray for REST APIs
 
 ## Authorization
 

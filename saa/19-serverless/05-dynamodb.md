@@ -17,7 +17,7 @@ Fully managed, serverless key-value and document database
 ## Indexes
 
 - GSI: different partition/sort key; add later; eventually consistent reads
-- LSI: same partition key, alternate sort key; create with table; strong reads available
+- LSI: same partition key, alternate sort key; create with table; strong reads; 10 GB per partition-key value
 
 ## Advanced Features
 
@@ -28,7 +28,7 @@ Fully managed, serverless key-value and document database
 
 ### DynamoDB Streams
 
-- Ordered item-level change records retained for 24 hours
+- Time-ordered item changes retained for 24 hours; ordering preserved per item
 - Commonly triggers Lambda for event-driven processing
 
 ### Global Tables
