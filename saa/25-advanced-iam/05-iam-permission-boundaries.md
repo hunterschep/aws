@@ -8,5 +8,3 @@ Maximum permissions that identity-based policies can grant
 - Example: Policy allows S3 + EC2, boundary allows only S3 -> no EC2 access
 - Useful for delegating IAM administration without allowing unrestricted permissions
 - Explicit denies still win; SCPs can further restrict access
-- Caveat: Same-account resource grants directly to a user ARN / role-session ARN can bypass implicit boundary denies
-- Grants to a role ARN remain limited by its boundary

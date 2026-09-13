@@ -6,7 +6,7 @@ SQL data warehouse for OLAP and BI, not an OLTP database
 - Columnar storage, compression, massively parallel processing (MPP)
 - Provisioned clusters or Redshift Serverless
 - Redshift: Data warehousing and complex analytics
-- Athena: Ad hoc SQL directly on S3; neither is always faster
+- Athena: Ad hoc SQL directly on S3
 
 ## Provisioned Clusters
 
