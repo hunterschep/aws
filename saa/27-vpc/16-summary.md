@@ -1,0 +1,22 @@
+# VPC Summary
+
+- CIDR: IP address range; larger prefix = fewer addresses
+- VPC: Regional isolated network; subnets each belong to one AZ
+- Internet gateway: VPC internet access for IPv4 / IPv6, with suitable routes and addresses
+- Route tables: Destination-based routing; most specific matching route wins
+- Bastion host: Public EC2 instance used to SSH into private instances
+- NAT instance: Self-managed EC2 NAT; disable source / destination checks
+- NAT gateway: Managed outbound NAT; zonal or regional, also supports NAT64
+- NACL: Stateless subnet filtering; allow / deny rules, lowest number first
+- Security group: Stateful ENI / resource filtering; allow rules only
+- VPC peering: Two non-overlapping VPCs; non-transitive
+- VPC endpoints: Private service access; interface = PrivateLink, gateway = S3 / DynamoDB
+- PrivateLink: Exposes a service privately, not full VPC-to-VPC routing
+- VPC Flow Logs: Traffic metadata; no packet contents
+- Traffic Mirroring: Copies packets to inspection appliances
+- Transit Gateway: Transitive hub connecting VPCs and on-premises networks
+- Site-to-Site VPN: Encrypted tunnels, usually over the public internet
+- Direct Connect: Private connection to AWS; not encrypted by default
+- VPN CloudHub: Hub-and-spoke connectivity between customer VPN networks
+- Egress-only IGW: Outbound-only IPv6 internet access, without NAT
+- Network Firewall: Stateful / stateless inspection for traffic routed through it
