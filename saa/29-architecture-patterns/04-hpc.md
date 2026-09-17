@@ -4,7 +4,7 @@
 
 - Direct Connect: Dedicated network connectivity for sustained transfers to AWS
 - DataSync: Move datasets between on-premises storage and S3, EFS, or FSx
-- Offline bulk transfer: See [data-transfer options](../28-disaster-recovery/09-data-transfer.md)
+- Offline bulk transfer: See [data-transfer options](../28-disaster-recovery-migration/09-data-transfer.md)
 
 ## Compute and Networking
 
