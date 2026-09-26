@@ -3,8 +3,9 @@
 Notes on AWS certifications 
 
 ```text
-saa/ # Certified Solutions Architect - Associate (Stephane Maarek course + Tutorials Dojo)
-
+solutions-architect-associate/ # Certified Solutions Architect - Associate
+ai-practicioner/              # AWS Certified AI Practitioner
+cloud-practicioner/            # AWS Certified Cloud Practitioner
 ```
 
 ## Naming
