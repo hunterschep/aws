@@ -6,6 +6,8 @@ Managed service to use FMs through a unified API; select among supported provide
 - Model choice: modality, task quality, context / output limits, latency, language, availability / Region, customization, cost, data / compliance needs
 - Check model access, supported Regions, and model-specific features; model catalog changes over time
 - Customer prompts and outputs are not used by Bedrock model providers to train their base models
+- Model source: managed provider FM, open-source pretrained model, or custom-trained model; compare capability, license, provenance, support, and operating burden
+- Managed API reduces hosting / scaling work; self-host an open model when control / customization / deployment constraints justify infrastructure and operations
 
 ## Inference cost / capacity
 

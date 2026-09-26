@@ -13,7 +13,8 @@ Agent = FM-driven system that can plan / choose steps, call tools, observe resul
 - Tool use: model proposes a structured call; application / agent runtime executes it and returns result
 - Workflow: predefined steps / transitions; predictable and easier to test
 - Agent: model chooses next action dynamically; useful when steps depend on intermediate results
-- Multi-agent: specialists can be routed / coordinated; adds handoffs, communication, and debugging overhead
+- Multi-agent patterns: supervisor delegates / routes to specialists; sequential agents pass results along; parallel agents work independently then aggregate
+- Communication / orchestration carries task, results, state, retries, and handoffs; fixed workflows are easier to predict, dynamic agents adapt but are harder to test
 - MCP: open protocol for connecting AI applications / agents to external tools and context providers; it does not itself grant authorization
 - Memory: short-term conversation state vs. persistent user / task memory; minimize, scope, and protect retained data
 - Orchestration manages planning, tool execution, state, retries, and handoffs; impose least privilege, validation, budgets, and human approval for consequential actions
